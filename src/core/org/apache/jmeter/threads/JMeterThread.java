@@ -70,7 +70,7 @@ public class JMeterThread implements Runnable, Interruptible {
 
     public static final String LAST_SAMPLE_OK = "JMeterThread.last_sample_ok"; // $NON-NLS-1$
 
-    //PHCustomize param: set thredshold for error samplers.
+    //Echo-Customize param: set thredshold for error samplers.
     public static final int STOP_ON_ERROR = JMeterUtils.getPropDefault("jmeterthread.error.stop", 100);
 
     private static final String TRUE = Boolean.toString(true); // i.e. "true"
@@ -263,15 +263,15 @@ public class JMeterThread implements Runnable, Interruptible {
                 Sampler sam = controller.next();
                 while (running && sam != null) {
                     process_sampler(sam, null, threadContext);
-                    //PHCustomize
+                    //Echo-Customize
                     if (!TRUE.equals(threadContext.getVariables().get(LAST_SAMPLE_OK))) {
-                        log.error("++++++++++++++++++ PH-Customize errorCount = " + errorCount + " +++++++++++++++++++");
+                        log.error("++++++++++++++++++ Echo-Customize errorCount = " + errorCount + " +++++++++++++++++++");
                         errorCount-- ;
                     }
-                    //PHCustomize
+                    //Echo-Customize
                     if (errorCount<=0) {
                         running = false;
-                        log.error("PH-Customize Thread is stopped: " + threadName + "......too many errors");
+                        log.error("Echo-Customize Thread is stopped: " + threadName + "......too many errors");
                     }
                     threadContext.cleanAfterSample();
                     if(onErrorStartNextLoop || threadContext.isRestartNextLoop()) {
