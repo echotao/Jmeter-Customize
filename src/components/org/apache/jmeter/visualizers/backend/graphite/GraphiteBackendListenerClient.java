@@ -128,7 +128,7 @@ public class GraphiteBackendListenerClient extends AbstractBackendListenerClient
                 if(entry.getKey().equals(CUMULATED_METRICS)) {
                     addMetrics(timestampInSeconds, ALL_CONTEXT_NAME, metric);
                 } else {
-                    addMetrics(timestampInSeconds, AbstractGraphiteMetricsSender.sanitizeString(entry.getKey()), metric);                
+                    addMetrics(timestampInSeconds, AbstractGraphiteMetricsSender.sanitizeString(entry.getKey()), metric);
                 }
                 // We are computing on interval basis so cleanup
                 metric.resetForTimeInterval();

@@ -7,7 +7,7 @@
 
 ## Functions
 
-* limit error samplers to 1000. When the threshold is reached, stop Jmeter from running.
+* Limit error samplers to 1000. When the threshold is reached, stop Jmeter from running.
 
 
 
